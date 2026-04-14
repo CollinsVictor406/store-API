@@ -12,15 +12,14 @@ const userSchema = new schema({
     },
     businessType:{
         type:String,
-        required:[true,'Business type is required','Other'],
-       
+        required:true,
+        enum:['Vendor','Retailer','Whoseler','Artisan','Service Provider','Reseller']
     },
-    otherBusinessType:{
-      type:String,
-      required:function () {
-        return this.businessType === 'Other'
-      }
+    currentPlatform:{
+        type:String,
+        enum:['WhatsApp','Instagram','Facebook','Twitter/X','Tiktok']
     },
+
     notes:{
         type:String,
         required:true

@@ -28,35 +28,20 @@ exports.createInfo = async (req, res) => {
       phoneNumber,
       businessType,
       currentPlatform,
-      notes,
-      otherBusinessType
+      notes
     } = req.body
 
     // 1. Required fields check
-    if (!name || !phoneNumber || !businessType || !notes) {
+    if (!name || !phoneNumber || !businessType || !notes || !currentPlatform) {
       return res.status(400).json({
         message: 'Please fill in the necessary fields'
       })
     }
-
-    // 2. Handle "Other" case properly
-    let finalBusinessType = businessType
-
-    if (businessType === 'Other') {
-      if (!otherBusinessType) {
-        return res.status(400).json({
-          message: 'Please specify your business field'
-        })
-      }
-
-      finalBusinessType = otherBusinessType
-    }
-
     // 3. Create clean data object
     const userData = {
       name,
       phoneNumber,
-      businessType: finalBusinessType,
+      businessType,
       currentPlatform,
       notes
     }
