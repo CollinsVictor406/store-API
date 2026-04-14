@@ -19,7 +19,7 @@ const vendorModel = require('../model/vendorModel')
 //     return res.status(500).json({error:error.message})
 //   }
 // }
-const vendorModel = require('../model/vendorModel')
+
 
 exports.createInfo = async (req, res) => {
   try {
