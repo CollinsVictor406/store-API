@@ -13,9 +13,7 @@ const userSchema = new schema({
     businessType:{
         type:String,
         required:[true,'Business type is required','Other'],
-        enum:{
-            values:['Fashion','Food','Electronics','Service','Other']
-        },
+       
     },
     otherBusinessType:{
       type:String,
