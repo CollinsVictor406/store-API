@@ -63,8 +63,8 @@ exports.createInfo = async (req, res) => {
 
 exports.getAllUsers = async(req,res)=>{
   try {
-    const users = await vendorModel.find().select('name phoneNumber businessType createdAt')
-    console.log();
+    const users = await vendorModel.find().select('name phoneNumber businessType createdAt notes currentPlatform')
+    
     
     if(users.length < 1){
       return res.status(401).json({message:"No user found"})
